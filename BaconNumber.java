@@ -52,6 +52,7 @@ public class BaconNumber {
 	System.out.println("This is a Kevin Bacon game (based off: https://oracleofbacon.org/).\n Here are some actions you can do:\n");
 	//@deadmau5
 	Scanner inputy = new Scanner(System.in);
+	//dealing with user io
 	while(1<2) {
 	    try{
 		LinkedList<String> input = new LinkedList<String>();
@@ -76,7 +77,7 @@ public class BaconNumber {
 	    }
 	}
     }
-    //s is the center
+    //s is the center. returns avg distance in graph
     public double avgdist() {
 	double temp =0;
 	for(String s1: graphy.vertecies.keySet()) {
@@ -86,6 +87,7 @@ public class BaconNumber {
 	}
 	return (double) temp/ graphy.reachedActors;
     }
+	//gets the top actors around the center given their number of neighbors i
     public PriorityQueue<topObj> topCenter(Integer i) {
 	int temp =0;
 	PriorityQueue<topObj> priorityQueue = new PriorityQueue<topObj>(new cmp());
