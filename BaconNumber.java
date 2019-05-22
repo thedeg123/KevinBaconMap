@@ -17,6 +17,7 @@ public class BaconNumber {
     MyGraph graphy;
     public BaconNumber(Scanner s) {
 	this.graphy = new MyGraph();
+	//reading in a file of actors names and movies they have been in to populate graph
 	while (s.hasNext()) {
 	    String banana = s.nextLine();
 	    //yummy
@@ -138,6 +139,7 @@ public class BaconNumber {
 	    return 0;
 	}
     }
+	//prints metadata on graph
     public void printTable() {
 	int getAllz = 0;
 	System.out.println("Table of distances for " + graphy.center + "\nNumber 0" +": "+ 1);
@@ -149,10 +151,12 @@ public class BaconNumber {
 	}
 	System.out.println("Unreachable: "+ (graphy.vertecies.size()-getAllz-graphy.MovieCount-1));
     }
+	//updates center node
     public boolean recenter(String s) {
 	if(graphy.contains(s)) {graphy.center = s; graphy.findPath(s); return true;}
 	else return false;
     }
+	//find the path to a given vertex in the graph
     public String find(String s) {
 	//yes this is in reversed order but the linkedlist prints in reverse order so its right
 	if(graphy.contains(s)) {return graphy.printPath(s);}
