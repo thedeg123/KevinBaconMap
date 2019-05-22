@@ -52,6 +52,7 @@ public class MyGraph {
 		return false;
 	    return true;
 	}
+	//Various getter and setter methods for vertex class
 	public void isMovie() {
 	    this.Movie = true;
 	}
@@ -135,6 +136,7 @@ public class MyGraph {
 	    vertecies.get(temp.getKey()).hasParent = false;
 	}
     }
+	//prints the path from a given vetex in the tree back to the center vertex
     public String printPath(String vertex){
 	String s1 = "\n" + vertex + " -> ";
 	String current = vertex;
@@ -151,6 +153,7 @@ public class MyGraph {
 	}
 	else return (vertex + " is unreachable!");
     }
+	//updates the number of movies in the graph
     private void getMovieCount() {
 	for(Vertex s1: vertecies.values()) {
 	    if(s1.Movie) {
@@ -158,6 +161,7 @@ public class MyGraph {
 	    }
 	}
     }
+//populates a linked list with all connected nodes
     public LinkedList<String> getConnected(){
 	LinkedList<String> queue = new LinkedList<>();
 	for(Vertex v: vertecies.values()) {
@@ -168,7 +172,7 @@ public class MyGraph {
 	return queue;
     }
     public void findPath(String centers) {
-	//a bfs algorithm
+	//a modified bfs algorithm keeping a counter of the actors weve travered
 	this.clearParents();
 	this.getMovieCount();
 	this.center = centers;
@@ -192,6 +196,7 @@ public class MyGraph {
 	    }
 	}
     }
+	//for finding avg distance in tree
     public int getAllDistance(Integer i) {
 	int z=0;
 	for(Vertex v: vertecies.values()) {
