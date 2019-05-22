@@ -10,7 +10,6 @@ import java.util.Queue;
  */
 public class MyGraph {
     //The string is the actor/movie name the vertex is that actors vertex
-    //Who needs spellung?
     String center;
     int reachedActors;
     int MovieCount;
@@ -169,6 +168,7 @@ public class MyGraph {
 	return queue;
     }
     public void findPath(String centers) {
+	//a bfs algorithm
 	this.clearParents();
 	this.getMovieCount();
 	this.center = centers;
@@ -180,7 +180,6 @@ public class MyGraph {
 	center.mark();
 	while(!queue.isEmpty()) {
 	    Vertex temp = queue.poll();
-	    //System.out.println(temp.distanceFrom);
 	    for(int i=0;i<temp.getEdges().size();i++) {
 		Vertex surrounding = temp.getEdges().get(i).destination;
 		if(!surrounding.isMarked && surrounding.Movie == false) {reachedActors++;}
